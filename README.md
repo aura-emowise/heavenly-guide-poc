@@ -18,9 +18,9 @@ While the final product envisions a photorealistic 3D globe, this simplified pro
 
 This prototype is the **technical blueprint** for a much grander vision. It's the reliable engine that will power the future, emotionally engaging user experience.
 
-### Live Demo
+### Live Demo https://heavenly-guide-poc.onrender.com
 
-[Link to your live demo on Render.com will be here]
+
 
 ### How to Run Locally
 
