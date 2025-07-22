@@ -1,7 +1,6 @@
 # Heavenly Guide - "Interactive Simulation Engine" PoC
 
-**Core Mission:** To create a premium travel planning tool that allows users to find and book accommodations based on optimal viewing opportunities for celestial events.
-
+**Core Mission:** To create a premium travel planning tool that allows users to find and book accommodations based on optimal viewing opportunities for celestial events -sunrises or susshines, red moon, parad planet, launches of rockets etc.
 ---
 
 ## About This Prototype
