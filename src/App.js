@@ -111,7 +111,7 @@ function App() {
     }
     return (
       <>
-        <h2 className="subtitle">Select a curated experience to begin</h2>
+        <h2 className="subtitle">Select a curated experience to begin v2</h2>
         <div className="tour-selection-container">
           {Object.values(DEMO_LOCATIONS).map(loc => (<div key={loc.id} className="menu-card" onClick={() => startTour(loc.id)}><span className="menu-card-icon">{loc.icon}</span><h3>{loc.eventType}</h3><p>{loc.name}</p></div>))}
         </div>
