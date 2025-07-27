@@ -2,16 +2,14 @@
 import React from 'react';
 import './SkyView.css';
 
-// ИСПРАВЛЕНИЕ ДЛЯ ГОРИЗОНТА: Эта функция переводит градусы в буквы (N, E, S, W)
+// ...  ...
 const getDirectionLabel = (azimuth) => {
-  const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
-  const index = Math.round(((azimuth % 360) / 45)) % 8;
-  return directions[index];
+    const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+    const index = Math.round(((azimuth % 360) / 45)) % 8;
+    return directions[index];
 };
 
 const SkyView = ({ objects, viewAzimuth, fieldOfView = 90 }) => {
-  
-  // ИСПРАВЛЕНИЕ ДЛЯ ГОРИЗОНТА: Рассчитываем метки динамически
   const leftLabel = getDirectionLabel(viewAzimuth - fieldOfView / 2);
   const centerLabel = getDirectionLabel(viewAzimuth);
   const rightLabel = getDirectionLabel(viewAzimuth + fieldOfView / 2);
@@ -24,8 +22,10 @@ const SkyView = ({ objects, viewAzimuth, fieldOfView = 90 }) => {
     const bottomPercent = (obj.altitude / 90) * 100;
     const style = { left: `${leftPercent}%`, bottom: `${bottomPercent}%` };
 
-    // ИСПРАВЛЕНИЕ ДЛЯ СОЛНЦА: Добавляем специальный класс, если это Солнце
-    const objectClass = obj.type === 'sun' ? 'sky-object sun' : 'sky-object';
+    // UPDATED: Handle different object types for different styles
+    let objectClass = 'sky-object';
+    if (obj.type === 'sun') objectClass += ' sun';
+    if (obj.type === 'rocket') objectClass += ' rocket';
 
     return (
       <div key={index} className={objectClass} style={style} title={obj.name}>
@@ -37,12 +37,7 @@ const SkyView = ({ objects, viewAzimuth, fieldOfView = 90 }) => {
   return (
     <div className="sky-view-container">
       <div className="sky-view-window">{objects.map(renderObject)}</div>
-      <div className="horizon-line">
-        {/* ИСПРАВЛЕНИЕ ДЛЯ ГОРИЗОНТА: Используем динамические метки */}
-        <span>{leftLabel}</span>
-        <span>{centerLabel}</span>
-        <span>{rightLabel}</span>
-      </div>
+      <div className="horizon-line"><span>{leftLabel}</span><span>{centerLabel}</span><span>{rightLabel}</span></div>
     </div>
   );
 };
